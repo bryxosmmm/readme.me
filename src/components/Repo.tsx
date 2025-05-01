@@ -36,7 +36,7 @@ export const fetchRecentRepo = async (username: string) => {
 
   const events: Event[] = await response.json();
 
-  const pushEvent = events.find((event) => event.type === "PushEvent");
+  const pushEvent = events.find((event) => event.type === "PushEvent" && !event.repo.name.endsWith("readme.me"));
 
   if (!pushEvent) {
     throw new Error("No recent commits found");
