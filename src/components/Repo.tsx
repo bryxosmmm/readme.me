@@ -27,7 +27,11 @@ type Event = {
 
 export const fetchRecentRepo = async (username: string) => {
   const response = await fetch(
-    `https://api.github.com/users/${username}/events/public`
+    `https://api.github.com/users/${username}/events/public`, {
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+    },
+  }
   );
 
   if (!response.ok) {

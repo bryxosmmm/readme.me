@@ -7,7 +7,7 @@ type Repo = {
 };
 
 const fetchStars = async (username: string) => {
-  const response = await fetch(`https://api.github.com/users/${username}/repos`);
+  const response = await fetch(`https://api.github.com/users/${username}/repos`, { headers: { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}` } });
   if (!response.ok) throw new Error("Failed to fetch GitHub repos");
 
   const repos: Repo[] = await response.json();

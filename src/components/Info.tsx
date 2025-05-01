@@ -13,13 +13,13 @@ type AvatarUrl = {
 }
 
 const getImage = async (username: string) => {
-  const data = await fetch(`https://api.github.com/users/${username}`)
+  const data = await fetch(`https://api.github.com/users/${username}`, { headers: { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}` } });
   const user: AvatarUrl = await data.json();
   return user.avatar_url
 }
 
 const Image = () => {
-  const [image] = createResource(() => "bryxosmmm", getImage);
+  const [image] = createResource(() => import.meta.env.VITE_GITHUB_NAME, getImage);
   return (
     <div class="user-image">
       <Show when={image()} fallback={<p>Loading...</p>}>
