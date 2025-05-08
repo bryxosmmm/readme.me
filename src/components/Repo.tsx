@@ -52,12 +52,11 @@ export const fetchRecentRepo = async (username: string) => {
 };
 
 type RepoProps = {
-  username: string;
   onclick: () => void,
 }
 
-function Repo({ username, onclick }: RepoProps) {
-  const [repo] = createResource(() => username, fetchRecentRepo);
+function Repo({ onclick }: RepoProps) {
+  const [repo] = createResource(() => import.meta.env.VITE_GITHUB_USERNAME, fetchRecentRepo);
 
   return (<Show when={repo()} fallback={<Badge icon={bookOpen} text="NULL" />}>{(r) => <Badge onclick={onclick} icon={bookOpen} text={`Latest: ${r()}`} />}</Show>)
 

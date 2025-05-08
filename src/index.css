@@ -35,7 +35,7 @@
 }
 
 .readme {
-  @apply h-full text-rose-text p-8 m-4 border-1 border-rose-accent overflow-y-auto shadow-lg rounded-xl;
+  @apply h-full text-rose-text p-8 m-4 border-1 overflow-y-auto shadow-lg rounded-lg;
   background: linear-gradient(135deg, var(--color-rose-glass) 0%, var(--color-rose-subtle) 100%);
   backdrop-filter: blur(12px);
   scrollbar-width: none;
@@ -108,19 +108,20 @@
 .readme p {
   @apply my-4 leading-relaxed;
   color: var(--color-rose-text-muted);
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   position: relative;
+  @apply font-jetbrains text-sm;
+  @apply transition-colors duration-200;
+  @apply border-l border-rose-accent/20 pl-4;
+}
+
+.readme p:hover {
+  color: var(--color-rose-text);
+  @apply border-l border-rose-accent/40;
 }
 
 .readme p::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0.75rem;
-  width: 4px;
-  height: 4px;
-  background: var(--color-rose-muted);
-  border-radius: 50%;
+  display: none;
 }
 
 .readme pre {
@@ -142,7 +143,7 @@
 }
 
 .info {
-  @apply p-8 m-4 rounded-xl h-full w-full overflow-y-auto;
+  @apply p-8 m-4 rounded-lg h-full w-full overflow-y-auto;
   background: linear-gradient(145deg, var(--color-rose-surface) 0%, var(--color-rose-subtle) 100%);
   border: 1px solid var(--color-rose-accent);
   box-shadow: 
@@ -218,21 +219,22 @@
 }
 
 .info p {
-  @apply my-4 leading-relaxed;
+  @apply my-3 leading-relaxed;
   color: var(--color-rose-text-muted);
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   position: relative;
+  @apply font-jetbrains text-sm;
+  @apply transition-colors duration-200;
+  @apply border-l border-rose-accent/20 pl-4;
+}
+
+.info p:hover {
+  color: var(--color-rose-text);
+  @apply border-l border-rose-accent/40;
 }
 
 .info p::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0.75rem;
-  width: 4px;
-  height: 4px;
-  background: var(--color-rose-muted);
-  border-radius: 50%;
+  display: none;
 }
 
 body {
@@ -345,4 +347,91 @@ body {
     rgba(255, 255, 255, 0.1) 50%,
     transparent 100%
   );
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.2;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.4;
+    filter: blur(15px);
+  }
+  100% {
+    opacity: 0.2;
+    filter: blur(20px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.bottom-bar {
+  @apply fixed bottom-0 left-0 right-0 h-[6%] bg-gradient-to-br from-rose-surface/80 to-rose-subtle/80 backdrop-blur-md;
+  @apply flex items-center justify-center space-x-8 px-4;
+  @apply transition-all duration-300 ease-in-out;
+  @apply z-50;
+  @apply border-t border-rose-accent/20;
+  @apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)];
+}
+
+.bottom-bar-link {
+  @apply flex items-center space-x-2 text-rose-text/70 hover:text-rose-accent transition-colors duration-200;
+  @apply relative overflow-hidden;
+}
+
+.bottom-bar-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-rose-accent;
+  @apply transform scale-x-0 origin-left transition-transform duration-300;
+}
+
+.bottom-bar-link:hover::after {
+  @apply scale-x-100;
+}
+
+.bottom-bar-icon {
+  @apply w-5 h-5;
+  @apply transition-transform duration-200;
+}
+
+.bottom-bar-link:hover .bottom-bar-icon {
+  @apply transform scale-110;
 }

@@ -37,7 +37,7 @@ const toHtml = async (content: string) => {
 
 const fetchReadme = async (username: string) => {
   const repo = await fetchRecentRepo(username);
-  const data = await fetch(`https://raw.githubusercontent.com/bryxosmmm/${repo}/master/README.md`, { headers: { 'Accept': "application/vnd.github.v3.raw" } });
+  const data = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/README.md`, { headers: { 'Accept': "application/vnd.github.v3.raw" } });
 
   const content = await data.text()
 
@@ -48,12 +48,13 @@ const fetchReadme = async (username: string) => {
 }
 
 function Readme({ visible }: ReadmeProps) {
-  const [markdown] = createResource(() => "bryxosmmm", fetchReadme);
+  const [markdown] = createResource(() => import.meta.env.VITE_GITHUB_USERNAME, fetchReadme);
 
   return (
     <>
       <div class={`h-[calc(100%-16px)] transition-transform duration-500 ease-in-out ${visible() ? 'opacity-100 translate-x-0' : '-translate-x-full pointer-events-none'} }`}>
-        <Show when={markdown()} fallback={Preload()}><div class="readme" innerHTML={markdown()} />
+        <Show when={markdown()} fallback={<div class="border-rose-muted readme"><Preload /></div>
+        }><div class="readme border-rose-accent" innerHTML={markdown()} />
         </Show>
       </div>
     </>

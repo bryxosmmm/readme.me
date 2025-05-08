@@ -7,14 +7,18 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "tsc -b && vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "highlight.js": "^11.11.1",
     "marked": "^15.0.11",
     "solid-heroicons": "^3.2.4",
-    "solid-js": "^1.9.5"
+    "solid-js": "^1.9.5",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@catppuccin/highlightjs": "^1.0.1",
