@@ -1,0 +1,39 @@
+---
+import { languages, getLangFromUrl } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const otherLang = currentLang === 'en' ? 'ru' : 'en';
+const otherLangPath = otherLang === 'en' ? '/' : `/${otherLang}`;
+---
+
+<div class="language-switcher">
+  <a href={otherLangPath} class="lang-link">
+    {languages[otherLang]}
+  </a>
+</div>
+
+<style>
+  .language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+  }
+
+  .lang-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+
+  .lang-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+</style>

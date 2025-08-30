@@ -1,4 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const { 
 	name = "Kirill Gerasimov",
 	telegram = "t.me/bryxosmmm", 
@@ -11,6 +16,7 @@ const {
 	<header class="header">
 		<div class="item-title">
 			<h1 class="title primary">{name}</h1>
+			<p class="subtitle">{t('welcome.subtitle')}</p>
 		</div>
 		<div class="meta-info">
 			<a href={`https://${telegram}`} target="_blank" rel="noopener noreferrer">
@@ -26,54 +32,59 @@ const {
 	</header>
 	
 	<div class="section">
-		<h2 class="section-heading">Education</h2>
+		<h2 class="section-heading">{t('education.title')}</h2>
 		<div class="item">
 			<div class="item-title">
-				<span class="primary">MISIS University</span>
-				<span class="secondary">Computer Science & Engineering</span>
+				<span class="primary">{t('education.university')}</span>
+				<span class="secondary">{t('education.degree')}</span>
 			</div>
-			<div class="meta">2025-2029 | Moscow, Russia</div>
+			<div class="meta">{t('education.years')} | {t('education.location')}</div>
 		</div>
 	</div>
 	
 	<div class="section">
-		<h2 class="section-heading">About Me</h2>
+		<h2 class="section-heading">{t('about.title')}</h2>
 		<div class="item">
 			<p class="description">
-				Focused on low-level and practical software development.
-				Frequently experiment with various technologies and languages.
-				Keen interest in systems programming and tackling technical challenges.
-				Able to collaborate effectively in teams and solve complex problems.
+				{t('about.description')}
 			</p>
 		</div>
 	</div>
 	
 	<div class="section">
-		<h2 class="section-heading">Achievements</h2>
+		<h2 class="section-heading">{t('achievements.title')}</h2>
 		<div class="item">
 			<div class="item-title">
-				<span class="primary">PROD '25 Finals</span>
-				<span class="secondary">Backend Development (Go/Rust)</span>
+				<span class="primary">{t('achievements.prod.title')}</span>
+				<span class="secondary">{t('achievements.prod.subtitle')}</span>
 			</div>
 			<p class="description">
-				Finalist of first olympiad in industrial development.
-				With my team we developed a mobile app for small businesses to simplify promotions and special offers.
+				{t('achievements.prod.description')}
 			</p>
-			<div class="meta">March 2025 | Moscow, Russia</div>
+			<div class="meta">{t('achievements.prod.date')} | {t('education.location')}</div>
 		</div>
 	</div>
 	
 	<div class="section">
-		<h2 class="section-heading">Skills & Technologies</h2>
+		<h2 class="section-heading">{t('skills.title')}</h2>
 		<div class="flex-container">
 			<div class="flex-item">
-				<div class="heading">Languages</div>
-				<div class="subheading">Go, Rust, C++, Python, JavaScript</div>
+				<div class="heading">{t('skills.languages.title')}</div>
+				<div class="subheading">{t('skills.languages.subtitle')}</div>
 			</div>
 			<div class="flex-item">
-				<div class="heading">Areas</div>
-				<div class="subheading">Systems Programming, Backend Development, Low-level Development</div>
+				<div class="heading">{t('skills.areas.title')}</div>
+				<div class="subheading">{t('skills.areas.subtitle')}</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.subtitle {
+		font-size: 1.25rem;
+		color: var(--secondary-color);
+		margin-top: 0.5rem;
+		font-weight: 400;
+	}
+</style>
