@@ -1,56 +1,3 @@
----
-const { 
-	name = "Kirill Gerasimov",
-	telegram = "t.me/bryxosmmm", 
-	email = "bryxosmmm@proton.me",
-	location = "Remote"
-} = Astro.props;
----
-
-<div class="container">
-	<header class="header">
-		<div class="item-title">
-			<span class="title primary">Kirill Gerasimov</span>
-		</div>
-		<span class="secondary">MISIS (2025-2029)</span>
-		<div class="meta-info">
-			<span>{telegram}</span>
-			<span>{email}</span>
-			<span>{location}</span>
-		</div>
-	</header>
-	<div class="section">
-		<heading class="section-heading">Education</h2>
-		<div class="meta">2025-2029 | Moscow, Russia</div>
-	</div>
-	<div class="section">
-		<heading class="section-heading">About me</h2>
-			<div class="item">
-				<p class="description">
-					Focused on low-level and practical software development.
-					Frequently experiment with various technologies and languages.
-					Keen interest in systems programming and tackling technical challenges.
-					Able to collaborate effectively in teams and solve complex problems.
-				</p>
-			</div>
-	</div>
-	<div class="section">
-		<heading class="section-heading">Achivements</h2>
-		<div class="item">
-			<div class="item-title">
-				<span class="primary">PROD '25 finals</span>
-				<span class="secondary">Backend (Go/Rust)</span>
-			</div>
-			<p class="description">
-					Finalist of first olympiad in industrial development.
-					With my team we developed a mobile app for small buisnesses to simplify promotions, special offers.
-			</p>
-			<div class="meta">Mar 2025 - Moscow, Russia</div>
-		</div>
-	</div>
-</div>
-
-<style>
 @font-face {
 	font-family: 'cozette';
 	src: url('/fonts/cozette.woff') format('woff');
@@ -132,7 +79,7 @@ const {
 }
 
 .description {
-	font-size: clamp(14px, 2.5vw, 16px);
+	font-size: clamp(12px, 2.5vw, 14px);
 	line-height: 1.8;
 	margin-bottom: clamp(10px, 3vw, 15px);
 	color: #cccccc;
@@ -200,4 +147,3 @@ const {
 		margin-bottom: 35px;
 	}
 }
-</style>
