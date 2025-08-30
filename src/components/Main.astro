@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 
 const { 
 	telegram = "t.me/extremepeacee", 
-	email = "bryxosmmm@proton.me",
+	github = "github.com/bryxosmmm",
 } = Astro.props;
 ---
 
@@ -19,8 +19,8 @@ const {
 			<a href={`https://${telegram}`} target="_blank" rel="noopener noreferrer">
 				<span>{telegram}</span>
 			</a>
-			<a href={`mailto:${email}`}>
-				<span>{email}</span>
+			<a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
+				<span>{github}</span>
 			</a>
 		</div>
 	</header>

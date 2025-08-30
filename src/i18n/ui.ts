@@ -44,7 +44,7 @@ export const ui = {
     'welcome.title': 'Добро пожаловать',
     'welcome.subtitle': 'Software Developer',
     'education.title': 'Образование',
-    'education.university': 'НИТУ МИСиС',
+    'education.university': 'НИТУ МИСИС',
     'education.degree': 'Бизнес-информатика',
     'education.years': '2025-2029',
     'education.location': 'Москва, Россия',
