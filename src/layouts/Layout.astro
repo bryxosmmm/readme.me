@@ -1,8 +1,10 @@
 ---
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { getLangFromUrl } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import '../styles/global.css';
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
@@ -12,8 +14,8 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Kirill Gerasimov - Software Developer</title>
-		<link rel="stylesheet" href="/src/styles/global.css" />
+		<title>{t('page.title')}</title>
+
 	</head>
 	<body>
 		<LanguageSwitcher />

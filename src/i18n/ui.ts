@@ -10,6 +10,7 @@ export const ui = {
     'nav.home': 'Home',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'page.title': 'Kirill Gerasimov - Software Developer',
     'welcome.title': 'Welcome',
     'welcome.subtitle': 'Software Developer',
     'education.title': 'Education',
@@ -34,6 +35,7 @@ export const ui = {
     'nav.home': 'Главная',
     'nav.about': 'Обо мне',
     'nav.contact': 'Контакты',
+    'page.title': 'Кирилл Герасимов - Разработчик ПО',
     'welcome.title': 'Добро пожаловать',
     'welcome.subtitle': 'Разработчик ПО',
     'education.title': 'Образование',
@@ -58,7 +60,7 @@ export const ui = {
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
+  if (lang && lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
 

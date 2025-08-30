@@ -3,7 +3,7 @@ import { languages, getLangFromUrl } from '../i18n/ui';
 
 const currentLang = getLangFromUrl(Astro.url);
 const otherLang = currentLang === 'en' ? 'ru' : 'en';
-const otherLangPath = otherLang === 'en' ? '/' : `/${otherLang}`;
+const otherLangPath = `/${otherLang}`;
 ---
 
 <div class="language-switcher">
