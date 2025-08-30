@@ -3,6 +3,8 @@ export const languages = {
   ru: 'Русский',
 };
 
+const programmingLanguages = 'Go, Rust, C, C++, Ocaml, Python';
+
 export const defaultLang = 'en';
 
 export const ui = {
@@ -15,10 +17,11 @@ export const ui = {
     'welcome.subtitle': 'Software Developer',
     'education.title': 'Education',
     'education.university': 'MISIS University',
-    'education.degree': 'Computer Science & Engineering',
+    'education.degree': 'Business Informatics',
     'education.years': '2025-2029',
     'education.location': 'Moscow, Russia',
     'about.title': 'About Me',
+    'about.my_name': 'Kirill Gerasimov',
     'about.description': 'Focused on low-level and practical software development. Frequently experiment with various technologies and languages. Keen interest in systems programming and tackling technical challenges. Able to collaborate effectively in teams and solve complex problems.',
     'achievements.title': 'Achievements',
     'achievements.prod.title': 'PROD \'25 Finals',
@@ -27,22 +30,24 @@ export const ui = {
     'achievements.prod.date': 'March 2025',
     'skills.title': 'Skills & Technologies',
     'skills.languages.title': 'Languages',
-    'skills.languages.subtitle': 'Go, Rust, C++, Python, JavaScript',
+    'skills.languages.subtitle': programmingLanguages,
     'skills.areas.title': 'Areas',
     'skills.areas.subtitle': 'Systems Programming, Backend Development, Low-level Development',
   },
+
   ru: {
     'nav.home': 'Главная',
     'nav.about': 'Обо мне',
     'nav.contact': 'Контакты',
-    'page.title': 'Кирилл Герасимов - Разработчик ПО',
+    'page.title': 'Кирилл Герасимов - Software Developer',
     'welcome.title': 'Добро пожаловать',
-    'welcome.subtitle': 'Разработчик ПО',
+    'welcome.subtitle': 'Software Developer',
     'education.title': 'Образование',
     'education.university': 'НИТУ МИСиС',
-    'education.degree': 'Информатика и вычислительная техника',
+    'education.degree': 'Бизнес-информатика',
     'education.years': '2025-2029',
     'education.location': 'Москва, Россия',
+    'about.my_name': 'Кирилл Герасимов',
     'about.title': 'Обо мне',
     'about.description': 'Сосредоточен на низкоуровневой и практической разработке программного обеспечения. Часто экспериментирую с различными технологиями и языками. Живой интерес к системному программированию и решению технических задач. Способен эффективно сотрудничать в командах и решать сложные проблемы.',
     'achievements.title': 'Достижения',
@@ -52,15 +57,26 @@ export const ui = {
     'achievements.prod.date': 'Март 2025',
     'skills.title': 'Навыки и технологии',
     'skills.languages.title': 'Языки',
-    'skills.languages.subtitle': 'Go, Rust, C++, Python, JavaScript',
+    'skills.languages.subtitle': programmingLanguages,
     'skills.areas.title': 'Области',
     'skills.areas.subtitle': 'Системное программирование, Backend разработка, Низкоуровневая разработка',
   },
 } as const;
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang && lang in ui) return lang as keyof typeof ui;
+  // Handle base paths correctly
+  const base = import.meta.env.BASE_URL || '';
+  const pathWithoutBase = url.pathname.slice(base.length);
+  const segments = pathWithoutBase.split('/').filter(Boolean);
+
+  // If no segments, it's the root (default language)
+  if (segments.length === 0) return defaultLang;
+
+  // First segment is the language
+  const lang = segments[0];
+  if (lang in ui) return lang as keyof typeof ui;
+
+  // If invalid language, return default
   return defaultLang;
 }
 

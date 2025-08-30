@@ -5,18 +5,15 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const { 
-	name = "Kirill Gerasimov",
-	telegram = "t.me/bryxosmmm", 
+	telegram = "t.me/extremepeacee", 
 	email = "bryxosmmm@proton.me",
-	location = "Remote"
 } = Astro.props;
 ---
 
 <div class="container">
 	<header class="header">
 		<div class="item-title">
-			<h1 class="title primary">{name}</h1>
-			<p class="subtitle">{t('welcome.subtitle')}</p>
+			<h1 class="title primary">{t('about.my_name')}</h1>
 		</div>
 		<div class="meta-info">
 			<a href={`https://${telegram}`} target="_blank" rel="noopener noreferrer">
@@ -24,9 +21,6 @@ const {
 			</a>
 			<a href={`mailto:${email}`}>
 				<span>{email}</span>
-			</a>
-			<a href="#">
-				<span>{location}</span>
 			</a>
 		</div>
 	</header>

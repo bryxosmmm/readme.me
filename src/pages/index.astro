@@ -1,4 +1,11 @@
 ---
-// Redirect to English version
-return Astro.redirect('/en');
+import Main from '../components/Main.astro';
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
 ---
+
+<Layout>
+	<Main lang={lang} />
+</Layout>
