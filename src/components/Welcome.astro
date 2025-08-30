@@ -10,194 +10,70 @@ const {
 <div class="container">
 	<header class="header">
 		<div class="item-title">
-			<span class="title primary">Kirill Gerasimov</span>
+			<h1 class="title primary">{name}</h1>
 		</div>
-		<span class="secondary">MISIS (2025-2029)</span>
 		<div class="meta-info">
-			<span>{telegram}</span>
-			<span>{email}</span>
-			<span>{location}</span>
+			<a href={`https://${telegram}`} target="_blank" rel="noopener noreferrer">
+				<span>{telegram}</span>
+			</a>
+			<a href={`mailto:${email}`}>
+				<span>{email}</span>
+			</a>
+			<a href="#">
+				<span>{location}</span>
+			</a>
 		</div>
 	</header>
+	
 	<div class="section">
-		<heading class="section-heading">Education</h2>
-		<div class="meta">2025-2029 | Moscow, Russia</div>
-	</div>
-	<div class="section">
-		<heading class="section-heading">About me</h2>
-			<div class="item">
-				<p class="description">
-					Focused on low-level and practical software development.
-					Frequently experiment with various technologies and languages.
-					Keen interest in systems programming and tackling technical challenges.
-					Able to collaborate effectively in teams and solve complex problems.
-				</p>
-			</div>
-	</div>
-	<div class="section">
-		<heading class="section-heading">Achivements</h2>
+		<h2 class="section-heading">Education</h2>
 		<div class="item">
 			<div class="item-title">
-				<span class="primary">PROD '25 finals</span>
-				<span class="secondary">Backend (Go/Rust)</span>
+				<span class="primary">MISIS University</span>
+				<span class="secondary">Computer Science & Engineering</span>
+			</div>
+			<div class="meta">2025-2029 | Moscow, Russia</div>
+		</div>
+	</div>
+	
+	<div class="section">
+		<h2 class="section-heading">About Me</h2>
+		<div class="item">
+			<p class="description">
+				Focused on low-level and practical software development.
+				Frequently experiment with various technologies and languages.
+				Keen interest in systems programming and tackling technical challenges.
+				Able to collaborate effectively in teams and solve complex problems.
+			</p>
+		</div>
+	</div>
+	
+	<div class="section">
+		<h2 class="section-heading">Achievements</h2>
+		<div class="item">
+			<div class="item-title">
+				<span class="primary">PROD '25 Finals</span>
+				<span class="secondary">Backend Development (Go/Rust)</span>
 			</div>
 			<p class="description">
-					Finalist of first olympiad in industrial development.
-					With my team we developed a mobile app for small buisnesses to simplify promotions, special offers.
+				Finalist of first olympiad in industrial development.
+				With my team we developed a mobile app for small businesses to simplify promotions and special offers.
 			</p>
-			<div class="meta">Mar 2025 - Moscow, Russia</div>
+			<div class="meta">March 2025 | Moscow, Russia</div>
+		</div>
+	</div>
+	
+	<div class="section">
+		<h2 class="section-heading">Skills & Technologies</h2>
+		<div class="flex-container">
+			<div class="flex-item">
+				<div class="heading">Languages</div>
+				<div class="subheading">Go, Rust, C++, Python, JavaScript</div>
+			</div>
+			<div class="flex-item">
+				<div class="heading">Areas</div>
+				<div class="subheading">Systems Programming, Backend Development, Low-level Development</div>
+			</div>
 		</div>
 	</div>
 </div>
-
-<style>
-@font-face {
-	font-family: 'cozette';
-	src: url('/fonts/cozette.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-:global(body) {
-	font-family: 'cozette', monospace;
-	background-color: #1a1a1a;
-	color: #ffffff;
-	line-height: 1.6;
-	padding: clamp(20px, 5vw, 60px);
-	max-width: 900px;
-	margin: 0 auto;
-	font-size: clamp(14px, 2.5vw, 16px);
-}
-
-.container {
-	background-color: #1a1a1a;
-	padding: 0;
-}
-
-.header {
-	margin-bottom: clamp(30px, 8vw, 60px);
-}
-
-.title {
-	font-size: clamp(22px, 5vw, 30px);
-	font-weight: bold;
-	margin-bottom: clamp(15px, 4vw, 20px);
-	letter-spacing: 1px;
-}
-
-.meta-info {
-	display: flex;
-	flex-wrap: wrap;
-	gap: clamp(15px, 4vw, 40px);
-	font-size: clamp(14px, 2.5vw, 18px);
-	color: #cccccc;
-}
-
-.section {
-	margin-bottom: clamp(30px, 6vw, 50px);
-}
-
-.section-heading {
-	font-size: clamp(20px, 3vw, 24px);
-	color: #999999;
-	margin-bottom: clamp(20px, 5vw, 30px);
-	font-weight: normal;
-}
-
-.item {
-	margin-bottom: clamp(25px, 5vw, 40px);
-	display: flex;
-	flex-direction: column;
-	column-count: 1;
-}
-
-.item-title {
-	font-size: clamp(14px, 3vw, 16px);
-	margin-bottom: clamp(10px, 3vw, 15px);
-}
-
-.primary {
-	color: #ffffff;
-	font-weight: bold;
-}
-
-.secondary {
-	color: #999999;
-}
-
-.description {
-	font-size: clamp(14px, 2.5vw, 16px);
-	line-height: 1.8;
-	margin-bottom: clamp(10px, 3vw, 15px);
-	color: #cccccc;
-}
-
-.meta {
-	font-size: clamp(12px, 2.5vw, 14px);
-	color: #999999;
-}
-
-.flex-container {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(20px, 5vw, 30px);
-}
-
-.flex-item {
-	flex: 1;
-}
-
-.heading {
-	font-size: clamp(14px, 3vw, 16px);
-	color: #ffffff;
-	font-weight: bold;
-	margin-bottom: clamp(6px, 2vw, 8px);
-}
-
-.subheading {
-	font-size: clamp(12px, 2.5vw, 14px);
-	color: #cccccc;
-}
-
-.text-content {
-	font-size: clamp(12px, 2.5vw, 14px);
-	color: #cccccc;
-	line-height: 1.8;
-}
-
-/* Additional mobile optimizations */
-@media (min-width: 768px) {
-	.flex-container {
-		flex-direction: row;
-		gap: clamp(40px, 8vw, 80px);
-	}
-}
-
-@media (max-width: 480px) {
-	.meta-info {
-		flex-direction: column;
-		gap: 8px;
-	}
-
-	:global(body) {
-		padding: 15px;
-	}
-}
-
-/* Touch-friendly improvements */
-@media (hover: none) and (pointer: coarse) {
-	.text-content, .description {
-		line-height: 2;
-	}
-
-	.item {
-		margin-bottom: 35px;
-	}
-}
-</style>
