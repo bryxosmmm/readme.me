@@ -1,9 +1,10 @@
 export const languages = {
-  en: 'English',
-  ru: 'Русский',
+  en: 'EN',
+  ru: 'RU',
 };
 
 const programmingLanguages = 'Go, Rust, C, C++, Ocaml, Python';
+const techStack = 'Git, Linux, Docker, SQL/noSQL';
 
 export const defaultLang = 'en';
 
@@ -22,7 +23,7 @@ export const ui = {
     'education.location': 'Moscow, Russia',
     'about.title': 'About Me',
     'about.my_name': 'Kirill Gerasimov',
-    'about.description': 'Focused on low-level and practical software development. Frequently experiment with various technologies and languages. Keen interest in systems programming and tackling technical challenges. Able to collaborate effectively in teams and solve complex problems.',
+    'about.description': 'Deep into low-level programming, understanding how systems work under the hood. Build compilers and interpreters, leveling up my skills with low-level code. Aim for clean, readable code without unnecessary complexity or overengineering. Interested in optimization and efficient solutions. Constantly upgrading my skills in systems programming and exploring new technologies.',
     'achievements.title': 'Achievements',
     'achievements.prod.title': 'PROD \'25 Finals',
     'achievements.prod.subtitle': 'Backend Development (Go/Rust)',
@@ -31,8 +32,8 @@ export const ui = {
     'skills.title': 'Skills & Technologies',
     'skills.languages.title': 'Languages',
     'skills.languages.subtitle': programmingLanguages,
-    'skills.areas.title': 'Areas',
-    'skills.areas.subtitle': 'Systems Programming, Backend Development, Low-level Development',
+    'skills.areas.title': 'Tech',
+    'skills.areas.subtitle': techStack,
   },
 
   ru: {
@@ -49,7 +50,7 @@ export const ui = {
     'education.location': 'Москва, Россия',
     'about.my_name': 'Кирилл Герасимов',
     'about.title': 'Обо мне',
-    'about.description': 'Сосредоточен на низкоуровневой и практической разработке программного обеспечения. Часто экспериментирую с различными технологиями и языками. Живой интерес к системному программированию и решению технических задач. Способен эффективно сотрудничать в командах и решать сложные проблемы.',
+    'about.description': 'Погружен в низкоуровневое программирование, разбираюсь, как работают системы под капотом. Разрабатываю компиляторы и интерпретаторы, прокачиваю навыки работы с кодом на базовом уровне. Стремлюсь писать чистый и понятный код, без лишней сложности и оверхеда. Интересуюсь оптимизацией и эффективностью решений. Постоянно улучшаю свои умения в системном программировании и изучаю новые технологии. ',
     'achievements.title': 'Достижения',
     'achievements.prod.title': 'Финал PROD \'25',
     'achievements.prod.subtitle': 'Backend разработка (Go/Rust)',
@@ -58,8 +59,8 @@ export const ui = {
     'skills.title': 'Навыки и технологии',
     'skills.languages.title': 'Языки',
     'skills.languages.subtitle': programmingLanguages,
-    'skills.areas.title': 'Области',
-    'skills.areas.subtitle': 'Системное программирование, Backend разработка, Низкоуровневая разработка',
+    'skills.areas.title': 'Технологии',
+    'skills.areas.subtitle': techStack,
   },
 } as const;
 
